@@ -1,6 +1,18 @@
+<script>
+    // @ts-nocheck
+    import axios from 'axios'
+    import {onMount} from 'svelte'
 
+    $: animes = ['Naruto','Apple pie']
+    
+    onMount(async ()=>{
+        const res = await axios.get('https://anime-api.xyz/page-1');
+        console.log(res.data);
+    })
+</script>
 
-<div class="bg-slate-800">
-    <h2 class="text-white">WEllcome to svelte</h2>
-    <a href="/">Admin panel</a>
+<div class="bg-orange-300">
+    {#each animes as anime}
+        <h2>{anime?.title}</h2>
+    {/each}
 </div>
