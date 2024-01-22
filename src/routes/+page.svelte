@@ -2,13 +2,8 @@
     // @ts-nocheck
     import axios from 'axios'
     import {onMount} from 'svelte'
-
-    $: animes = ['Naruto','Apple pie']
-    
-    onMount(async ()=>{
-        const res = await axios.get('https://anime-api.xyz/page-1');
-        console.log(res.data);
-    })
+    export let data;
+    const {animes} = data;
 </script>
 
 <div class="bg-orange-300">
